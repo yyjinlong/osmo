@@ -1,0 +1,21 @@
+# config
+oslo.config
+
+# web
+flask
+
+# log
+anyjson
+babel
+iso8601
+
+# sqlalchemy
+oslo.db > 0.1
+psycopg2 == 2.5.5
+sqlalchemy == 0.9.9
+
+# package
+setuptools == 2.2
+
+# container
+gunicorn

@@ -1,0 +1,20 @@
+# Byte-compiled
+*.pyc
+
+# Distribution / packing
+build/
+*.egg-info/
+*.eggs/
+pbr*.egg/
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test
+.tox/
+
+# pbr
+AUTHORS
+ChangeLog
