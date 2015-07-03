@@ -1,6 +1,5 @@
 zara - keeping moving!
 -----------------------------------
-author: jinlong.yang
 
 ## 学习的一种方式是模仿
 
