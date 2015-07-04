@@ -5,7 +5,7 @@ zara - keeping moving!
 
 ## 俗话说得好：好记性不如烂笔头
 
-## 使用
+## 使用方法一：
 
     1) 安装virtualenv
         $ virtualenv test
@@ -51,3 +51,27 @@ zara - keeping moving!
         >>> import zara
         >>>
 
+## 使用方法二：
+
+    1) 安装virtualenv
+        $ virtualenv .venv
+
+    2) 激活virtualenv
+        $ source .venv/bin/activate
+
+    3) 添加requirements.txt
+	git+git://github.com/yyjinlong/zara.git#egg=zara	
+
+    4) pip安装
+        (.venv)➜  test  pip install -r requirements.txt 
+
+    5) 错误
+	Error: pg_config executable not found.	
+    
+    6) 解决
+	➜  ~ sudo apt-get install libpq-dev python-dev
+	之后再重新执行一遍就搞定
+
+## 使用方法三：
+
+   本地搭建pypi服务器,使用pip再下载.
