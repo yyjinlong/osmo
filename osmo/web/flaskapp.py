@@ -7,7 +7,7 @@ from flask import Flask
 from oslo.config import cfg
 from werkzeug.serving import run_simple
 
-from application import QApplication
+from osmo.app.application import QApplication
 
 CONF = cfg.CONF
 
@@ -33,7 +33,6 @@ web_opts = [
         cfg.StrOpt(
             "run_mode",
             default = "werkzeug",
-            # the choices is important
             choices = ("gunicorn", "werkzeug"),
             help = "use werkzeug mode run debug"
         ),
@@ -100,4 +99,3 @@ class QFlaskApplication(QApplication):
             self._wsgi_debug_run()
         elif CONF.web.run_mode == "gunicorn":
             self._gunicorn_prod_run()
-

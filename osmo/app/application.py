@@ -7,17 +7,14 @@ import sys
 
 from oslo.config import cfg
 
-from singleton import Singleton
+from osmo.app.singleton import Singleton
 
 
 class QApplication(Singleton):
-    name = ""
-    version = ""
+    name = "app"
+    version = "v1.0"
 
     def init_app(self):
-        pass
-
-    def configure(self):
         """before the application is running,
            make the oslo.config module take effect,
            otherwise other modules such as log module will invalid
@@ -33,15 +30,12 @@ class QApplication(Singleton):
     def main(self):
         """calling process:
             1. inititialize application
-            2. config oslo.config's conf file
-            3. application run
+            2. application run
         """
         self.init_app()
-        self.configure()
         self.run()
 
     def make_entry_point(self):
         def wrapper():
             self.main()
         return wrapper
-

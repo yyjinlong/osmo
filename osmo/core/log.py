@@ -42,10 +42,10 @@ import traceback
 
 from oslo.config import cfg
 
-#NOTE(jinlong.yang modify qg)
-from gettextutils import _
-import jsonutils
-import local
+# NOTE(jinlong.yang) full path
+from osmo.core.gettextutils import _
+from osmo.core import jsonutils
+from osmo.core import local
 
 
 _DEFAULT_LOG_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"

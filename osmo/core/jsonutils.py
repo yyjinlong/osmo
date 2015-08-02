@@ -44,10 +44,10 @@ except ImportError:
 
 import six
 
-# NOTE(jinlong.yang modify qg)
-import gettextutils
-import importutils
-import timeutils
+# NOTE(jinlong.yang) full path
+from osmo.core import gettextutils
+from osmo.core import importutils
+from osmo.core import timeutils
 
 netaddr = importutils.try_import("netaddr")
 

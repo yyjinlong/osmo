@@ -3,7 +3,7 @@
 # Author: jinlong.yang
 #
 
-from zara.web.flaskapp import QFlaskApplication
+from osmo.web.flaskapp import QFlaskApplication
 
 
 # 对应qg的app.py，对整个应用的设置及初始化

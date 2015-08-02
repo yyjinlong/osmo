@@ -1,5 +1,5 @@
 # config
-oslo.config
+oslo.config == 1.11.0
 
 # web
 flask

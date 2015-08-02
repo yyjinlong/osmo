@@ -7,7 +7,7 @@ from sqlalchemy.ext import declarative
 import sqlalchemy as sa
 
 
-from timeutils import utcnow
+from osmo.core.timeutils import utcnow
 
 
 class TableNameMixin(object):
