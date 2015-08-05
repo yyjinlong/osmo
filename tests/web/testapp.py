@@ -3,11 +3,11 @@
 # Author: jinlong.yang
 #
 
-from osmo.web.flaskapp import QFlaskApplication
+from osmo.web.wsgiapp import WsgiApplication
 
 
 # 对应qg的app.py，对整个应用的设置及初始化
-class Test(QFlaskApplication):
+class Test(WsgiApplication):
     name = "test"
     version = "v1.0"
 
