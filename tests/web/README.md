@@ -59,10 +59,11 @@
         进入tests目录
         $ cd tests
 
-        启动服务：
+        调试启动服务：
         $ python testapp.py --config-file=test.conf
-        或:
-        $ python testapp.py
+
+        gunicorn启动：
+        $ python testapp.py --WEB-run_mode=gunicorn --config-file=test.conf
 
         测试接口：
         $ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:5000/test

@@ -10,7 +10,7 @@ class GunicornLogger(Logger):
 
     def access(self, resp, req, environ, request_time):
         """overwrite access method, make ignore healthcheck,
-        otherwise, accesslog file is more and more big.
+        otherwise, accesslog file will more and more big.
         """
         if environ['RAW_URI'] == '/healthcheck.html':
             return

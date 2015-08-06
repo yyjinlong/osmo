@@ -17,5 +17,6 @@ sqlalchemy == 0.9.9
 # package
 setuptools == 2.2
 
-# container
+# container and run mode
 gunicorn
+eventlet
