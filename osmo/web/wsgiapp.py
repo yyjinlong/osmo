@@ -13,13 +13,9 @@ from gunicorn.app.base import Application
 
 from osmo.app.application import QApplication
 
-default_opts =[
+default_opt =[
     cfg.BoolOpt(
         'debug',
-        default = True
-    ),
-    cfg.BoolOpt(
-        'verbose',
         default = True
     )
 ]
@@ -76,7 +72,7 @@ web_opts = [
 ]
 
 CONF = cfg.CONF
-CONF.register_opts(default_opts)
+CONF.register_opts(default_opt)
 CONF.register_cli_opts(web_opts, "WEB")
 
 
