@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
+#
+# Refrence Openstack oslo.db
+# File: oslo.db/oslo.db/sqlalchemy/models.py
+#
 
 
 from datetime import datetime
-from oslo.db.sqlalchemy import models
-from sqlalchemy.ext import declarative
-import sqlalchemy as sa
 
+from oslo_db.sqlalchemy import models
+from sqlalchemy.ext import declarative
+from sqlalchemy import Column, Integer
+from sqlalchemy import DateTime
 
 from osmo.core.timeutils import utcnow
 
@@ -31,11 +36,13 @@ class JSONSeriableMixin(object):
 
 
 class HasIdMixin(object):
-    id = sa.Column(sa.Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
 
 
 class TimestampMixin(object):
-    created_at = sa.Column(sa.DateTime, default=utcnow)
-    updated_at = sa.Column(sa.DateTime, onupdate=utcnow)
+    """oslo.db - TimestampMixin
+    """
+    created_at = Column(DateTime, default=utcnow)
+    updated_at = Column(DateTime, onupdate=utcnow)
 
 ModelBase = models.ModelBase

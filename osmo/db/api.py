@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-
+#
+#  Study    :  oslo.db
+#  Library  :  sqlalchemy
+#  Usage    :  neutron/neutron/db/api.py
+#
 
 from oslo.config import cfg
-from oslo.db.sqlalchemy import session as db_session
+from oslo_db.sqlalchemy import session as db_session
 
 _FACADE = None
 
