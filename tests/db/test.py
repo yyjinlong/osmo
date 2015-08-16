@@ -12,6 +12,7 @@ from base import (
 )
 from users import UserModel
 
+
 cfg.CONF(sys.argv[1:], project='test', version='1.0',default_config_files=None)
 
 def get_users():
