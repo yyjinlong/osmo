@@ -3,6 +3,7 @@
 
 # Distribution / packing
 build/
+dist/
 *.egg-info/
 *.eggs/
 pbr*.egg/

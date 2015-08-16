@@ -15,15 +15,13 @@
 #    under the License.
 #
 #    Modifications
-#    -------------
-#    2014-05-30  (jianingy.yang@gmail.com)
 #      - Remove log translation functions
 #      - Use oslo.cfg to configure translation domain
 
 """
 Usual usage:
 
-    from qg.core.gettextutils import _
+    from osmo.core.gettextutils import _
 """
 
 import copy

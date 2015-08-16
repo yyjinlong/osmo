@@ -28,6 +28,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from osmo.db import api
 from osmo.db import models
 
+
 BASE = declarative_base(cls=models.ModelBase)
 
 def get_session(*args, **kwargs):
@@ -42,7 +43,9 @@ def model_query(model, session=None, args=None, **kwargs):
     :type model   : models.ModelBase
 
     usage:
-
+        user_model = model_query(UserModel)\
+                .filter(UserModel.name == 'jinlong')\
+                .first()
     """
     if not issubclass(model, models.ModelBase):
         raise TypeError("model must be subclass of ModelBase")
