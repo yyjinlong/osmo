@@ -6,7 +6,7 @@
 
         application.py : 一个应用类，主要是QApplication,一些入口点都继承它
 
-        flaskapp.py    : 对flask的初始化及运行适配.
+        wsgiapp.py     : 对flask的初始化及运行适配.
                          注：(调试：werzeug；线上：gunicorn)
 
 ## 测试文件
@@ -63,7 +63,7 @@
         $ python testapp.py --config-file=test.conf
 
         gunicorn启动：
-        $ python testapp.py --WEB-run_mode=gunicorn --config-file=test.conf
+        $ python testapp.py --web-run_mode=gunicorn --config-file=test.conf
 
         测试接口：
-        $ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:5000/test
+        $ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:4000/test

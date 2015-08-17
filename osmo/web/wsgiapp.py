@@ -73,7 +73,7 @@ web_opts = [
 
 CONF = cfg.CONF
 CONF.register_opts(default_opt)
-CONF.register_cli_opts(web_opts, "WEB")
+CONF.register_cli_opts(web_opts, "web")
 
 
 class WsgiApplication(QApplication):
@@ -101,8 +101,8 @@ class WsgiApplication(QApplication):
     def _wsgi_debug_run(self):
         """use wsgi debug running
         """
-        run_simple(CONF.WEB.bind,
-                   CONF.WEB.port,
+        run_simple(CONF.web.bind,
+                   CONF.web.port,
                    self.flask_app,
                    use_reloader=CONF.debug,
                    use_debugger=CONF.debug)
@@ -119,22 +119,22 @@ class WsgiApplication(QApplication):
                 and then return config optional settings.
                 """
                 # per-fork workers
-                workers = CONF.WEB.workers
+                workers = CONF.web.workers
                 if 0 == workers:
                     workers = multiprocessing.cpu_count() * 2 + 1
 
                 # The logger you want to use to log events in gunicorn
                 logger_class = 'gunicorn.glogging.Logger'
-                if CONF.WEB.accesslog_ignore_healthcheck:
+                if CONF.web.accesslog_ignore_healthcheck:
                     logger_class = 'osmo.web.glogging.GunicornLogger'
 
                 cfg_options = {
-                    'bind': "%s:%s" %(CONF.WEB.bind, CONF.WEB.port),
-                    'daemon': CONF.WEB.daemon,
+                    'bind': "%s:%s" %(CONF.web.bind, CONF.web.port),
+                    'daemon': CONF.web.daemon,
                     'workers': workers,
-                    'timeout': CONF.WEB.timeout,
-                    'accesslog': CONF.WEB.accesslog,
-                    'worker_class': CONF.WEB.worker_class,
+                    'timeout': CONF.web.timeout,
+                    'accesslog': CONF.web.accesslog,
+                    'worker_class': CONF.web.worker_class,
                     'logger_class': logger_class
                 }
                 return cfg_options
@@ -148,7 +148,7 @@ class WsgiApplication(QApplication):
         GunicornApp().run()
 
     def run(self):
-        if CONF.WEB.run_mode == "werkzeug":
+        if CONF.web.run_mode == "werkzeug":
             self._wsgi_debug_run()
-        elif CONF.WEB.run_mode == "gunicorn":
+        elif CONF.web.run_mode == "gunicorn":
             self._gunicorn_prod_run()
