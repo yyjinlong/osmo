@@ -29,8 +29,6 @@ def get_engine():
 
 
 def get_session(**kwargs):
-    # See: http://docs.sqlalchemy.org/en/rel_0_9/orm/session.html
-    #      #unitofwork-contextual
     facade = _create_facade_lazily()
     db_session = facade.get_session(**kwargs)
     return db_session
