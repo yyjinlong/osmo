@@ -61,4 +61,8 @@ osmo(openstack module) - keeping moving!
 
 ## 使用方法三：
 
-   本地搭建pypi服务器,使用pip再下载.
+    本地搭建pypi服务器,使用pip再下载.
+
+## 注：
+
+    requirement.txt里必须指定版本号.
