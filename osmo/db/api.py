@@ -30,5 +30,4 @@ def get_engine():
 
 def get_session(**kwargs):
     facade = _create_facade_lazily()
-    db_session = facade.get_session(**kwargs)
-    return db_session
+    return facade.get_session(**kwargs)
