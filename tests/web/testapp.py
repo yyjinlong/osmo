@@ -3,7 +3,10 @@
 # Author: jinlong.yang
 #
 
+from osmo.core import log as logging
 from osmo.web.wsgiapp import WsgiApplication
+
+LOG = logging.getLogger(__name__)
 
 
 # 对应qg的app.py，对整个应用的设置及初始化
@@ -13,6 +16,8 @@ class Test(WsgiApplication):
 
     def init_app(self):
         super(Test, self).init_app()
+        logging.setup("test")
+        LOG.info("test run.")
         app = self.flask_app
         app.secret_key = "12345"
 
