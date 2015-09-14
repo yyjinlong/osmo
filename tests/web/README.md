@@ -9,16 +9,16 @@
         wsgiapp.py     : 对flask的初始化及运行适配.
                          注：(调试：werzeug；线上：gunicorn)
 
+
 ## 测试文件
 
-    falsk简单测试文件：
+    static:     静态文件目录, 存放css、javascript文件
+    templates:  模板文件目录, 存放html模板文件
+    views:      存放蓝图文件
 
-        testflask.py  : 使用最简单的werzug.servring下的run_simple来运行
-
-    对于封装的singleton、application、flaskapp的测试:
-
-        testapp.py  : 类似与qg的app.py 和 cmd.py
-        testctrl.py : 这个主要是controller里的具体某个接口操作
+    zero.py:    继承WsgiApplication并定义应用名name和版本version
+    注: 对于web项目,只需要重载父类的init_flask_app这个方法即可.
+        在这个方法里初始化flask一些相关属性及注册蓝图.
 
 
 ## 测试
@@ -59,11 +59,14 @@
         进入tests目录
         $ cd tests
 
-        调试启动服务：
-        $ python testapp.py --config-file=test.conf
+        调试启动服务:
+        $ python zero.py --config-file=zero.conf
 
-        gunicorn启动：
-        $ python testapp.py --web-run_mode=gunicorn --config-file=test.conf
+        gunicorn启动:
+        $ python zero.py --web-run_mode=gunicorn --config-file=zero.conf
 
-        测试接口：
+        测试接口:
         $ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:4000/test
+
+        测试界面:
+        浏览器输入：http://0.0.0.0:4000/

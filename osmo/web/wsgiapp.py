@@ -72,16 +72,20 @@ class WsgiApplication(QApplication):
 
     def init_app(self):
         super(WsgiApplication, self).init_app()
-        self.flask_app = None
-        self.init_flask_app()
 
     def init_flask_app(self, args=None, kwargs=None):
-        """initialize flask application
+        """Flask Application Create And Initialize.
+
+        Child class only need to implement this method.
         """
         # init flask arguments
         args = [] if args is None else args
         kwargs = {} if kwargs is None else kwargs
-        args.insert(0, __name__)
+
+        # flask app name is self.name rather than __name__
+        # otherwise, flask can't find templates and static directory
+        # because, flask root_path's value not right when inherit this class
+        args.insert(0, self.name)
 
         # create flask application
         self.flask_app = Flask(*args, **kwargs)
@@ -100,7 +104,7 @@ class WsgiApplication(QApplication):
                    use_debugger=CONF.debug)
 
     def _gunicorn_prod_run(self):
-        """use gunicorn running
+        """use gunicorn product running
         """
         app = self.flask_app
 
@@ -144,3 +148,13 @@ class WsgiApplication(QApplication):
             self._wsgi_debug_run()
         elif CONF.web.run_mode == "gunicorn":
             self._gunicorn_prod_run()
+
+    def main(self):
+        """calling process:
+            1. initialize application
+            2. initialize flask application
+            3. flak application run
+        """
+        self.init_app()
+        self.init_flask_app()
+        self.run()

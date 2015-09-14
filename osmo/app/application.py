@@ -11,13 +11,14 @@ from osmo.app.singleton import Singleton
 
 
 class QApplication(Singleton):
-    name = "app"
-    version = "v1.0"
 
     def init_app(self):
         """before the application is running,
            make the oslo.config module take effect,
-           otherwise other modules such as log module will invalid
+           otherwise other modules such as log module will invalid.
+
+           Notice: every subclass must be define two static variable:
+                   name and version.
         """
         cfg.CONF(sys.argv[1:],
                  project=self.name,
@@ -29,7 +30,7 @@ class QApplication(Singleton):
 
     def main(self):
         """calling process:
-            1. inititialize application
+            1. initialize application
             2. application run
         """
         self.init_app()
