@@ -7,7 +7,7 @@ Dependent
 
 	flask
 	gunicorn
-	greenlet
+	gevent
 	postgresql
 	oslo.db
 	oslo.config
