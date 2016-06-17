@@ -8,6 +8,7 @@ dist/
 *.eggs/
 pbr*.egg/
 .venv/
+*.un~
 
 # Installer logs
 pip-log.txt
