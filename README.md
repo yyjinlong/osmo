@@ -1,6 +1,10 @@
 osmo(openstack module) - keeping moving!
 ----------------------------------------
 
+## pypi地址
+
+    https://pypi.python.org/pypi/osmo
+
 ## 使用方法
 
     pip install osmo
