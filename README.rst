@@ -1,9 +1,9 @@
-## Desc
+Desc
 
 	through use openstack library, to provider convenience for flask application.at the same time by using the oslo.db library to simplify the operation of the database. by adding the log function, can make dameon process between more processes using the log function.
 
 
-## Dependent
+Dependent
 
 	flask
 	gunicorn
@@ -13,7 +13,7 @@
 	oslo.config
 
 
-## Methods
+Methods
 
 	1) daemon application
 
