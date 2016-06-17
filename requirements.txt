@@ -16,7 +16,7 @@ psycopg2 == 2.5.5
 sqlalchemy == 0.9.9
 
 # package
-setuptools == 2.2
+setuptools == 20.2.2
 
 # container and run mode
 gunicorn == 19.3.0
