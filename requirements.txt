@@ -20,5 +20,4 @@ setuptools == 2.2
 
 # container and run mode
 gunicorn == 19.3.0
-eventlet == 0.17.3
-greenlet == 0.4.7
+gevent == 1.1.1

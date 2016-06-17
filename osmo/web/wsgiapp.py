@@ -58,8 +58,8 @@ web_opts = [
         ),
         cfg.StrOpt(
             'worker_class',
-            default = 'eventlet',
-            choices = ('sync', 'eventlet'),
+            default = 'gevent',
+            choices = ('sync', 'gevent'),
             help = 'gunicorn work mode'
         )
 ]
