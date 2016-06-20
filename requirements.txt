@@ -1,23 +1,5 @@
-# config
 oslo.config == 1.12.0
-
-# web
-flask == 0.10.1
-
-# log
-anyjson
-babel
-iso8601
-six
-
-# sqlalchemy
-oslo.db == 2.1.0
-psycopg2 == 2.5.5
-sqlalchemy == 0.9.9
-
-# package
-setuptools == 20.2.2
-
-# container and run mode
-gunicorn == 19.3.0
-gevent == 1.1.1
+anyjson == 0.3.3
+babel == 1.3
+iso8601 == 0.1.9
+six >= 1.10.0

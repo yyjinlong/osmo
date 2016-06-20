@@ -25,8 +25,9 @@
 
     1) 依赖
         requirements.txt：
-            flask
-            oslo.config
+            flask == 0.10.1
+            gunicorn == 19.3.0
+            gevent == 1.1.1
 
     2) 安装
         (1) 安装virtualenv
@@ -59,14 +60,17 @@
         进入tests目录
         $ cd tests
 
+        安装依赖
+        (.venv) ➜  web git:(master) ✗ pip install -r requirements.txt
+
         调试启动服务:
-        $ python zero.py --config-file=zero.conf
+        (.venv) ➜  web git:(master) ✗ python zero.py --config-file=zero.conf
 
         gunicorn启动:
-        $ python zero.py --web-run_mode=gunicorn --config-file=zero.conf
+        (.venv) ➜  web git:(master) ✗ python zero.py --web-run_mode=gunicorn --config-file=zero.conf
 
         测试接口:
-        $ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:4000/test
+        (.venv) ➜  web git:(master) ✗ curl -H 'Content-Type:application/json' -d '{"name":"jinlong.yang"}' localhost:4000/test
 
         测试界面:
         浏览器输入：http://0.0.0.0:4000/

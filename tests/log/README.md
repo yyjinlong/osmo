@@ -40,3 +40,6 @@
 
     所以，应用启动前，需要添加如下conf配置：
     cfg.CONF(sys.argv[1:], project='test', version='1.0',default_config_files=None)
+
+    运行:
+    (.venv) ➜  log git:(master) ✗ python test.py --config-file=test.conf

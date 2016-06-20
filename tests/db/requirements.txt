@@ -1,0 +1,3 @@
+oslo.db == 2.1.0
+psycopg2 == 2.5.5
+sqlalchemy == 0.9.9
