@@ -9,6 +9,7 @@ Dependency
 
         setuptools == 20.2.2
 
+
     1) web application (wsgi framework use flask; database use postgresql)
 
         # web
@@ -20,6 +21,7 @@ Dependency
         oslo.db == 2.1.0
         psycopg2 == 2.5.5
         sqlalchemy = 0.9.9
+
 
     2) daemon application
 

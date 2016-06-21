@@ -1,4 +1,4 @@
-osmo(openstack module) - keeping moving!
+osmo(my openstack module) - keeping moving!
 ----------------------------------------
 
 ## pypi地址
@@ -69,12 +69,15 @@ osmo(openstack module) - keeping moving!
 
 ## 依赖
 
+    # NOTE(web应用)
     flask
     gunicorn
-    greenlet
-    postgresql
+    gevent
+
+    # NOTE(db操作)
+    psycopg2
+    sqlalchemy
     oslo.db
-    oslo.config
 
 
 ## 应用场景
@@ -85,11 +88,13 @@ osmo(openstack module) - keeping moving!
 
         >>> from osmo.app.application import QApplication
 
+
     二) 日志功能
 
         使用osmo.core.log
 
         >>> from osmo.core import log as logging
+
 
     三) 数据库功能
 
@@ -124,6 +129,7 @@ osmo(openstack module) - keeping moving!
 		>>> 		session = get_session()
 		>>> 	query = session.query(model) if not args else session.query(*args)
 		>>> 	return query
+
 
     四) web应用
 
