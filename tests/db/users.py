@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-#
-# Author: jinlong.yang
-#
 
 from sqlalchemy import (
     Column,

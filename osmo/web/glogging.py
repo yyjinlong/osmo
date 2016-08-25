@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Author: jinlong.yang
+# Copyright @ 2016 OPS, YY Inc.
+#
+# Author: Jinlong Yang
 #
 
 from gunicorn.glogging import Logger

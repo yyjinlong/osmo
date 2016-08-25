@@ -36,7 +36,7 @@
     test.py   测试log的运行文件
 
     注：
-    log.py文件里用到了CONF模块，所以必须得在调用log模块前使oslo.conf生效
+    log.py文件里用到了CONF模块，所以必须得在调用log模块前使oslo.config生效
 
     所以，应用启动前，需要添加如下conf配置：
     cfg.CONF(sys.argv[1:], project='test', version='1.0',default_config_files=None)

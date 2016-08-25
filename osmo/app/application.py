@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Author: jinlong.yang
+# Copyright @ 2016 OPS, YY Inc.
+#
+# Author: Jinlong Yang
 #
 
 import sys
@@ -26,7 +28,7 @@ class QApplication(Singleton):
                  default_config_files=None)
 
     def run(self):
-        raise NotImplementedError("app.run is not implemented!")
+        raise NotImplementedError('app.run is not implemented!')
 
     def main(self):
         """calling process:

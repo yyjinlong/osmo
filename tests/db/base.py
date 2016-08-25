@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# Author: jinlong.yang
-#
-
 """
 usage:
 
@@ -48,7 +44,7 @@ def model_query(model, session=None, args=None, **kwargs):
                 .first()
     """
     if not issubclass(model, models.ModelBase):
-        raise TypeError("model must be subclass of ModelBase")
+        raise TypeError('model must be subclass of ModelBase')
 
     if not session:
         session = get_session()

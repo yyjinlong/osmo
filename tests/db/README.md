@@ -37,4 +37,4 @@
     2) 运行
 
         (.venv) ➜  db git:(master) ✗ python test.py --config-file=test.conf
-        result:  [u'yangjinlong']
+        .....result:  [u'yangjinlong']

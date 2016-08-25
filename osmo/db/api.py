@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 #
-#   Refrence
-#       -  oslo.db
+# Copyright @ 2016 OPS, YY Inc.
 #
-#   Library
-#       - sqlalchemy
+# Author: Jinlong Yang
 #
-#   Usage
-#       - neutron/neutron/db/api.py
+# Reference
+#   - neutron/neutron/db/api.py
 #
 
 from oslo.config import cfg

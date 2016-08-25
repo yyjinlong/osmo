@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# Author: jinlong.yang
-#
 
 from datetime import timedelta
 
@@ -12,13 +9,13 @@ LOG = logging.getLogger(__name__)
 
 
 class TestApp(WsgiApplication):
-    name = "test_app"
-    version = "v1.0"
+    name = 'test_app'
+    version = 'v1.0'
 
     def init_flask_app(self):
         super(TestApp, self).init_flask_app()
-        logging.setup("test_www")
-        LOG.info("test www app run.....")
+        logging.setup('test_www')
+        LOG.info('test www app run.....')
 
         app = self.flask_app
         app.secret_key = 'haohaoxuexi,tiantianxiangshang.'

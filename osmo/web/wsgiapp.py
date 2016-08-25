@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Author: jinlong.yang
+# Copyright @ 2016 OPS, YY Inc.
+#
+# Author: Jinlong Yang
 #
 
 import sys
@@ -15,20 +17,20 @@ from osmo.app.application import QApplication
 
 web_opts = [
         cfg.StrOpt(
-            "run_mode",
-            default = "werkzeug",
-            choices = ("gunicorn", "werkzeug"),
-            help = "use werkzeug mode run debug"
+            'run_mode',
+            default = 'werkzeug',
+            choices = ('gunicorn', 'werkzeug'),
+            help = 'use werkzeug mode run debug'
         ),
         cfg.StrOpt(
-            "bind",
+            'bind',
             default = None,
-            help = "server run's ip address"
+            help = 'server run ip address'
         ),
         cfg.IntOpt(
-            "port",
+            'port',
             default = 5000,
-            help = "the port to listen"
+            help = 'the port to listen'
         ),
         cfg.BoolOpt(
             'daemon',
@@ -92,7 +94,7 @@ class WsgiApplication(QApplication):
         self.flask_app.debug = CONF.debug
 
         # open exception transport
-        self.flask_app.config["PROPAGATE_EXCEPTIONS"] = True
+        self.flask_app.config['PROPAGATE_EXCEPTIONS'] = True
 
     def _wsgi_debug_run(self):
         """use wsgi debug running
@@ -144,9 +146,9 @@ class WsgiApplication(QApplication):
         GunicornApp().run()
 
     def run(self):
-        if CONF.web.run_mode == "werkzeug":
+        if CONF.web.run_mode == 'werkzeug':
             self._wsgi_debug_run()
-        elif CONF.web.run_mode == "gunicorn":
+        elif CONF.web.run_mode == 'gunicorn':
             self._gunicorn_prod_run()
 
     def main(self):

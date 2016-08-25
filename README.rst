@@ -12,15 +12,17 @@ Dependency
 
     1) web application (wsgi framework use flask; database use postgresql)
 
-        # web
-        flask == 0.10.1
-        gunicorn == 19.3.0
-        gevent == 1.1.1
+        # web application
 
-        # db
-        oslo.db == 2.1.0
-        psycopg2 == 2.5.5
-        sqlalchemy = 0.9.9
+            flask == 0.10.1
+            gunicorn == 19.3.0
+            gevent == 1.1.1
+
+        # database application
+
+            oslo.db == 2.1.0
+            psycopg2 == 2.5.5
+            sqlalchemy == 0.9.9
 
 
     2) daemon application

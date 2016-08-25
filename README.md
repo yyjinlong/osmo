@@ -9,63 +9,26 @@ osmo(my openstack module) - keeping moving!
 
     pip install osmo
 
-## 其他方法
+## 指定git地址进行安装
 
-    一) git clone方式
+    1) 安装virtualenv
+        $ virtualenv .venv
 
-        1) 安装virtualenv
-            $ virtualenv test
+    2) 激活virtualenv
+        $ source .venv/bin/activate
 
-        2) 激活virtualenv
-            $ source test/bin/activate
+    3) 添加requirements.txt
+    git+git://github.com/yyjinlong/osmo.git#egg=osmo
 
-        3) git clone osmo项目
+    4) pip安装
+        (.venv)➜  test  pip install -r requirements.txt
 
-        4) 进入osmo目录
+    5) 错误
+    Error: pg_config executable not found.
 
-        5) 编译
-           $ python setup.py build
-
-        6) 安装
-           $ python setup.py install
-
-        7) 查看
-            (test)➜  ls .venv/lib/python2.7/site-packages/osmo*
-            app  core  db  __init__.py  __init__.pyc  web
-
-            .venv/lib/python2.7/site-packages/osmo-0.0.1.dev2-py2.7.egg-info:
-            dependency_links.txt  not-zip-safe  pbr.json  PKG-INFO  requires.txt  SOURCES.txt  top_level.txt
-
-        8) 输入python
-            (test)➜  ~  python
-            Python 2.7.5 (default, Mar  9 2014, 22:15:05)
-            [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
-            Type "help", "copyright", "credits" or "license" for more information.
-            >>> import osmo
-            >>>
-
-
-    二) 指定git地址
-
-        1) 安装virtualenv
-            $ virtualenv .venv
-
-        2) 激活virtualenv
-            $ source .venv/bin/activate
-
-        3) 添加requirements.txt
-        git+git://github.com/yyjinlong/osmo.git#egg=osmo
-
-        4) pip安装
-            (.venv)➜  test  pip install -r requirements.txt
-
-        5) 错误
-        Error: pg_config executable not found.
-
-        6) 解决
-        ➜  ~ sudo apt-get install libpq-dev python-dev
-        之后再重新执行一遍就搞定
-
+    6) 解决
+    ➜  ~ sudo apt-get install libpq-dev python-dev
+    之后再重新执行一遍就搞定
 
 ## 依赖
 
@@ -79,7 +42,6 @@ osmo(my openstack module) - keeping moving!
     sqlalchemy
     oslo.db
 
-
 ## 应用场景
 
     一) 创建daemon程序
@@ -88,13 +50,15 @@ osmo(my openstack module) - keeping moving!
 
         >>> from osmo.app.application import QApplication
 
-
     二) 日志功能
 
         使用osmo.core.log
 
         >>> from osmo.core import log as logging
+        >>> logging.setup('application') # 应用初始化时调用
 
+        使用:
+        >>> LOG = logging.getLogger(__name__)
 
     三) 数据库功能
 
@@ -130,9 +94,20 @@ osmo(my openstack module) - keeping moving!
 		>>> 	query = session.query(model) if not args else session.query(*args)
 		>>> 	return query
 
-
     四) web应用
 
-        使用osmo.web: 通过gunicorn库来自动为你的wsgi应用包含在容器中运行, 并可忽略nginx的healthcheck功能.
+        使用osmo.web
 
         >>> from osmo.web.wsgiapp import WsgiApplication
+
+        注: WsgiApplication使用说明
+
+        1) 所有继承自WsgiApplication的子类，首先都要导入log
+
+            >>> from osmo.core import log as logging
+            >>> LOG = logging.getLogger(__name__)
+
+            应用启动前需要setup:
+            >>> logging.setup("wsgi application.")
+
+        2) 配置文件里的debug和verbose已在osmo.core.log里注册了

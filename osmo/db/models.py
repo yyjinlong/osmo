@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 #
-#   Refrence
-#       - oslo.db
+# Copyright @ 2016 OPS, YY Inc.
 #
-#   File
-#       - oslo.db/oslo.db/sqlalchemy/models.py
+# Author: Jinlong Yang
+#
+# Reference
+#   - oslo.db/oslo.db/sqlalchemy/models.py
 #
 
 from oslo_db.sqlalchemy import models

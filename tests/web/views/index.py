@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# Author: jinlong.yang
-#
 
 from flask import (
     Blueprint,
@@ -9,7 +6,7 @@ from flask import (
     render_template
 )
 
-bp = Blueprint("index", __name__)
+bp = Blueprint('index', __name__)
 
 
 @bp.route('/')
@@ -20,5 +17,5 @@ def index():
 @bp.route('/test', methods=['POST', 'GET'])
 def test():
     ret = request.data
-    print "post or get data is: ", ret
+    print 'post or get data is: ', ret
     return 'success'
