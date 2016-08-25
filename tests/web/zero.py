@@ -20,6 +20,7 @@ class TestApp(WsgiApplication):
         app = self.flask_app
         app.secret_key = 'haohaoxuexi,tiantianxiangshang.'
         app.permanent_session_lefttime = timedelta(hours=24)
+
         app.static_url_path = '/static'
 
         # 一定要根据'root_path': '具体路径',来确定templates和static的路径

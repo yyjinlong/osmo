@@ -9,7 +9,7 @@ dist/
 pbr*.egg/
 .venv/
 *.un~
-.DS_Store
+*.DS_Store
 
 # Installer logs
 pip-log.txt
