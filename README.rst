@@ -9,21 +9,19 @@ Dependency
 
         setuptools == 20.2.2
 
-
     1) web application (wsgi framework use flask; database use postgresql)
 
         # web application
 
-            flask == 0.10.1
-            gunicorn == 19.3.0
-            gevent == 1.1.1
+        - flask == 0.10.1
+        - gunicorn == 19.3.0
+        - gevent == 1.1.1
 
         # database application
 
-            oslo.db == 2.1.0
-            psycopg2 == 2.5.5
-            sqlalchemy == 0.9.9
-
+        - oslo.db == 2.1.0
+        - psycopg2 == 2.5.5
+        - sqlalchemy == 0.9.9
 
     2) daemon application
 
@@ -49,7 +47,6 @@ Methods
         >>>         LOG.info('myapp run')
         >>>
 
-
 	2) web application
 
         >>> from osmo.web.wsgiapp import WsgiApplication
@@ -70,6 +67,7 @@ Methods
         >>>         app = self.flask_app
         >>>         app.secret_key = 'haohaoxuexi,tiantianxiangshang.'
         >>>         app.permanent_session_lefttime = timedelta(hours=24)
+        >>>
         >>>         app.static_url_path = '/static'
         >>>
         >>>         app.template_folder = 'templates'
