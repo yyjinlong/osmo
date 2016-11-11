@@ -27,12 +27,12 @@ class TestApp(WsgiApplication):
         app.template_folder = 'templates'
         app.static_folder = 'static'
 
-        #from pprint import pprint
-        #pprint(app.__dict__)
+        # from pprint import pprint
+        # pprint(app.__dict__)
 
-        #@app.route('/')
-        #def index():
-        #    return render_template('index.html', page_title='jinlong')
+        # @app.route('/')
+        # def index():
+        #     return render_template('index.html', page_title='jinlong')
 
         import views.index as index
         app.register_blueprint(index.bp, url_prefix='')

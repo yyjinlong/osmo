@@ -22,6 +22,10 @@ class QApplication(Singleton):
            Notice: every subclass must be define two static variable:
                    name and version.
         """
+        if not self.name:
+            raise Exception('project name can not empty.')
+        if not self.version:
+            raise Exception('project version can not empty.')
         cfg.CONF(sys.argv[1:],
                  project=self.name,
                  version=self.version,

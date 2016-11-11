@@ -16,54 +16,54 @@ from gunicorn.app.base import Application
 from osmo.app.application import QApplication
 
 web_opts = [
-        cfg.StrOpt(
-            'run_mode',
-            default = 'werkzeug',
-            choices = ('gunicorn', 'werkzeug'),
-            help = 'use werkzeug mode run debug'
-        ),
-        cfg.StrOpt(
-            'bind',
-            default = None,
-            help = 'server run ip address'
-        ),
-        cfg.IntOpt(
-            'port',
-            default = 5000,
-            help = 'the port to listen'
-        ),
-        cfg.BoolOpt(
-            'daemon',
-            default = False,
-            # use supervisor running, so set false
-            help = 'Daemonize the Gunicorn process'
-        ),
-        cfg.IntOpt(
-            'workers',
-            default = 0,
-            help = 'The number of worker processes for handling requests'
-        ),
-        cfg.IntOpt(
-            'timeout',
-            default = 600,
-            help = 'Workers more than this seconds are killed and restarted'
-        ),
-        cfg.StrOpt(
-            'accesslog',
-            default = None,
-            help = 'access log file'
-        ),
-        cfg.BoolOpt(
-            'accesslog_ignore_healthcheck',
-            default = True,
-            help = 'access log file ignore nginx health check'
-        ),
-        cfg.StrOpt(
-            'worker_class',
-            default = 'gevent',
-            choices = ('sync', 'gevent'),
-            help = 'gunicorn work mode'
-        )
+    cfg.StrOpt(
+        'run_mode',
+        default='werkzeug',
+        choices=('gunicorn', 'werkzeug'),
+        help='use werkzeug mode run debug'
+    ),
+    cfg.StrOpt(
+        'bind',
+        default=None,
+        help='server run ip address'
+    ),
+    cfg.IntOpt(
+        'port',
+        default=5000,
+        help='the port to listen'
+    ),
+    cfg.BoolOpt(
+        'daemon',
+        default=False,
+        # use supervisor running, so set false
+        help='Daemonize the Gunicorn process'
+    ),
+    cfg.IntOpt(
+        'workers',
+        default=0,
+        help='The number of worker processes for handling requests'
+    ),
+    cfg.IntOpt(
+        'timeout',
+        default=600,
+        help='Workers more than this seconds are killed and restarted'
+    ),
+    cfg.StrOpt(
+        'accesslog',
+        default=None,
+        help='access log file'
+    ),
+    cfg.BoolOpt(
+        'accesslog_ignore_healthcheck',
+        default=True,
+        help='access log file ignore nginx health check'
+    ),
+    cfg.StrOpt(
+        'worker_class',
+        default='gevent',
+        choices=('sync', 'gevent'),
+        help='gunicorn work mode'
+    )
 ]
 
 CONF = cfg.CONF
