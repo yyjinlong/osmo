@@ -13,6 +13,8 @@ from osmo.app.singleton import Singleton
 
 
 class QApplication(Singleton):
+    name = 'application'
+    version = 'v1.0'
 
     def init_app(self):
         """before the application is running,
