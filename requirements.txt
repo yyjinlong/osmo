@@ -1,1 +1,6 @@
 oslo.config == 1.12.0
+oslo.i18n == 3.9.0
+oslo.utils == 3.16.0
+oslo.context == 2.9.0
+stevedore == 1.17.1
+debtcollector == 1.8.0
