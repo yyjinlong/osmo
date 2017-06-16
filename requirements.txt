@@ -1,5 +1,4 @@
+anyjson == 0.3.3
+babel == 1.3
+iso8601 == 0.1.11
 oslo.config == 1.12.0
-anyjson >= 0.3.3
-babel >= 1.3
-iso8601 >= 0.1.9
-six >= 1.10.0
