@@ -1,2 +1,2 @@
-testtools == 1.8.0
 mock == 1.3.0
+testtools == 1.8.0
