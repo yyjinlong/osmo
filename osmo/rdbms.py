@@ -48,7 +48,7 @@ def model_query(model, session=None, args=None, **kwargs):
                     user_model.name = 'jinlong'
                     session.add(user_model)
 
-    use model_query query data:
+    usage model_query query data:
 
         def get_test():
             user_model = model_query(UserModel)\
