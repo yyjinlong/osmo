@@ -35,34 +35,29 @@ def model_query(model, session=None, args=None, **kwargs):
     :model param  : Model to query, Must be subclass of ModelBase
     :model type   : models.ModelBase
 
-    - model query usage:
-
-        user_model = model_query(UserModel)\
-                .filter(UserModel.name == 'jinlong')\
-                .first()
-
-    - session save usage:
+    usage session add data:
 
         def add_test():
             session = get_session()
             with session.begin(subtransactions=True):
                 user_model = session.query(UserModel)\
-                        .filter(UserModel.name == 'jinlong')\
-                        .first()
+                    .filter(UserModel.name == 'jinlong')\
+                    .first()
                 if not user_model:
                     user_model = UserModel()
                     user_model.name = 'jinlong'
                     session.add(user_model)
 
+    use model_query query data:
+
         def get_test():
             user_model = model_query(UserModel)\
-                    .filter(UserModel.name == 'jinlong')\
-                    .first()
+                .filter(UserModel.name == 'jinlong')\
+                .first()
             return user_model.id
     """
     if not issubclass(model, models.ModelBase):
         raise TypeError('Model must be subclass of ModelBase.')
-
     if not session:
         session = get_session()
     query = session.query(model) if not args else session.query(*args)
