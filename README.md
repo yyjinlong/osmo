@@ -18,9 +18,9 @@ pip install osmo
 ## 引用说明
 
 > OpenStack的通用库 (`oslo`) 包含了众多不需要重复发明的"轮子"。
-* `oslo.config` 库用于解析命令行和配置文件中的配置选项。
-* `oslo.db` 是针对 `SQLAlchemy` 的访问抽象。
-* `oslo.log`( `logging` ) 为OpenStack项目提供了标准的`logging`配置。
+>* `oslo.config` 库用于解析命令行和配置文件中的配置选项。
+>* `oslo.db` 是针对 `SQLAlchemy` 的访问抽象。
+>* `oslo.log`( `logging` ) 为OpenStack项目提供了标准的`logging`配置。
 
 
 ## 目标
