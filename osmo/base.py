@@ -22,7 +22,7 @@ class Singleton(object):
         return cls._instance
 
 
-class Basic(Singleton):
+class Application(Singleton):
 
     def __init__(self):
         if not (self.name and self.version):
@@ -36,7 +36,7 @@ class Basic(Singleton):
         logging.setup(CONF, self.name)
 
     def run(self):
-        raise NotImplementedError('Basic run method is not implemented!')
+        raise NotImplementedError('`run` method is not implemented!')
 
     def entry_point(self):
         def wrapper():

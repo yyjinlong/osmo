@@ -13,7 +13,7 @@ from oslo_config import cfg
 from werkzeug.serving import run_simple
 from gunicorn.app.base import Application
 
-from osmo.basic import Basic
+import osmo.base as base
 
 web_opts = [
     cfg.StrOpt('run_mode', default='werkzeug',
@@ -33,10 +33,10 @@ CONF = cfg.CONF
 CONF.register_cli_opts(web_opts, 'WEB')
 
 
-class WSGISystem(Basic):
+class WSGIApplication(base.Application):
 
     def __init__(self):
-        super(WSGISystem, self).__init__()
+        super(WSGIApplication, self).__init__()
         self.init_flask()
 
     def init_flask(self, args=None, kwargs=None):
