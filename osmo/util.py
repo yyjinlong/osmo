@@ -48,11 +48,11 @@ def http_handler(url, http_type, headers=None, payload=None):
         data is list or dict or concrete value if success, or ``None``
     """
     if http_type == HTTP.GET:
-	resp = requests.get(url, params=payload, headers=headers)
+        resp = requests.get(url, params=payload, headers=headers)
     elif http_type == HTTP.POST:
-	resp = requests.post(url, data=payload, headers=headers)
+        resp = requests.post(url, data=payload, headers=headers)
     else:
-	raise Exception('unknown http type!')
+        raise Exception('unknown http type!')
     if resp.status_code != 200:
         raise Exception('http status code is: %s' % resp.status_code)
     ret_info = resp.json()
