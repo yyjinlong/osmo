@@ -15,6 +15,10 @@ from gunicorn.app.base import Application
 
 import osmo.base as base
 
+default_opts = [
+    cfg.BoolOpt('debug', default=True, help='flask app debug level.')
+]
+
 web_opts = [
     cfg.StrOpt('run_mode', default='werkzeug',
                choices=('gunicorn', 'werkzeug'),
@@ -30,6 +34,7 @@ web_opts = [
 ]
 
 CONF = cfg.CONF
+CONF.register_cli_opts(default_opts)
 CONF.register_cli_opts(web_opts, 'WEB')
 
 
