@@ -1,3 +1,2 @@
 oslo.config == 4.5.0
-oslo.log == 3.28.1
 oslo.db == 4.21.1

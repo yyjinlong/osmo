@@ -8,10 +8,10 @@
 import sys
 
 from oslo_config import cfg
-from oslo_log import log as logging
+
+import osmo.log
 
 CONF = cfg.CONF
-LOG = logging.getLogger(__name__)
 
 
 class Singleton(object):
@@ -28,12 +28,10 @@ class Application(Singleton):
         if not (self.name and self.version):
             raise Exception('name and version not initialize.')
         self.setup()
-        LOG.debug('Log and Confg perpare has been ready.')
 
     def setup(self):
-        logging.register_options(CONF)
         CONF(sys.argv[1:], version=self.version)
-        logging.setup(CONF, self.name)
+        osmo.log.init()
 
     def run(self):
         raise NotImplementedError('`run` method is not implemented!')
