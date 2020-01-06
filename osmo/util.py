@@ -5,6 +5,7 @@
 # Author: Jinlong Yang
 #
 
+import json
 import hashlib
 from enum import Enum, unique
 from operator import itemgetter
@@ -33,7 +34,7 @@ def context(code, msg='', data=[]):
     r['code'] = code
     r['msg'] = msg
     r['data'] = data
-    return r
+    return json.dumps(r)
 
 
 def http_handler(url, http_type, headers=None, payload=None):
