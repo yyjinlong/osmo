@@ -23,14 +23,11 @@ web_opts = [
     cfg.StrOpt('run_mode', default='werkzeug',
                choices=('gunicorn', 'werkzeug'),
                help='Wsgi server run mode choice, defaule werkzeug.'),
-    cfg.StrOpt('bind', default='0.0.0.0',
-               help='Wsgi server run ip address.'),
-    cfg.IntOpt('port', default=5000,
-               help='Wsgi server run port.'),
+    cfg.StrOpt('bind', default='0.0.0.0', help='Wsgi server run ip.'),
+    cfg.IntOpt('port', default=5000, help='Wsgi server run port.'),
     cfg.IntOpt('timeout', default=600,
-               help='Wsgi worker handle task timeout.'),
-    cfg.StrOpt('accesslog', default=None,
-               help='Wsgi access log file path.')
+               help='Wsgi worker handle task timeout time.'),
+    cfg.StrOpt('accesslog', default=None, help='Wsgi access log file path.')
 ]
 
 CONF = cfg.CONF
@@ -78,16 +75,16 @@ class WSGIApplication(base.Application):
         """
         app = self.flask_app
 
-        class GunicornApp(Application):
+        class GunicornApplication(Application):
 
             def init(self, parser, opts, args):
-                # NOTE(Per-fork workers)
+                # Per-fork workers
                 workers = multiprocessing.cpu_count() * 2 + 1
 
-                # NOTE(Usage supervisor running, so set false.)
+                # Usage supervisor running, so set false.
                 daemon = False
 
-                # NOTE(Gunicorn work class use gevent coroutine.)
+                # Gunicorn work class use gevent coroutine.
                 worker_class = 'gevent'
 
                 cfg_options = {
@@ -103,10 +100,9 @@ class WSGIApplication(base.Application):
             def load(self):
                 return app
 
-        # gunicorn custom application file after no any param
-        # only have execute file.
+        # 自定义Gunicorn后, 不需要传递其他参数, 只需要当前的可执行文件即可.
         sys.argv = [sys.argv[0]]
-        GunicornApp().run()
+        GunicornApplication().run()
 
     def run(self):
         if CONF.WEB.run_mode == 'werkzeug':

@@ -26,7 +26,7 @@ class Application(Singleton):
 
     def __init__(self):
         if not (self.name and self.version):
-            raise Exception('name and version not initialize.')
+            raise Exception('name and version is not initialize.')
         self.setup()
 
     def setup(self):

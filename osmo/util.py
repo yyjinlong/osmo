@@ -38,7 +38,7 @@ def context(code, msg='', data=[]):
 
 
 def http_handler(url, http_type, headers=None, payload=None):
-    """ URL interface return value is json object.
+    """URL interface return value is json object.
     such as:
     {
         'code': 0/1,
@@ -63,7 +63,7 @@ def http_handler(url, http_type, headers=None, payload=None):
 
 
 def parameter_sign(data, salt):
-    """ Interface request parameters sign calculate method.
+    """Interface request parameters sign calculate method.
 
     Signature calculation process is as follows:
     1. according the "key" to sorted
@@ -95,3 +95,21 @@ def parameter_auth(data, salt):
     cal_sign = parameter_sign(data, salt)
     if cur_sign != cal_sign:
         raise Exception(u'sign is not right!')
+
+
+class Publisher:
+
+    def __init__(self):
+        self.observer_list = []
+
+    def update(self, observer):
+        if observer not in self.observer_list:
+            self.observer_list.append(observer)
+
+    def remove(self, observer):
+        if observer in self.observer_list:
+            self.observer_list.remove(observer)
+
+    def notify(self):
+        for observer in self.observer_list:
+            observer.subscribe(self)
