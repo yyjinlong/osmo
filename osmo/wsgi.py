@@ -62,7 +62,7 @@ class WSGIApplication(base.Application):
         self.flask_app.config['PROPAGATE_EXCEPTIONS'] = True
 
     def _wsgi_debug_run(self):
-        """ Use wsgi debug running.
+        """Use `run_simple` in development environment debug running.
         """
         run_simple(CONF.WEB.bind,
                    CONF.WEB.port,
@@ -71,7 +71,7 @@ class WSGIApplication(base.Application):
                    use_debugger=CONF.debug)
 
     def _gunicorn_prod_run(self):
-        """ Use gunicorn product running.
+        """Use `gunicorn` in product environment running.
         """
         app = self.flask_app
 
