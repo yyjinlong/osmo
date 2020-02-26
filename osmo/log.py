@@ -44,14 +44,14 @@ class MyLog:
             },
             'filters': {},
             'handlers': {
-                # NOTE(jinlong): 打印到终端的日志
+                # NOTE: 打印到终端的日志, 收集debug及以上的日志.
                 'console': {
                     'level': 'DEBUG',
                     'class': 'logging.StreamHandler',
                     'formatter': 'standard'
                 },
-                # NOTE(jinlong): 打印到文件的日志, 收集info及以上的日志.
-                # 每个日志文件大小最大为1G, 生成5个备份文件
+                # NOTE: 打印到文件的日志, 收集info及以上的日志.
+                #       每个日志文件大小最大为1G, 总共可生成5个备份文件.
                 'default': {
                     'level': 'INFO',
                     'class': 'logging.handlers.RotatingFileHandler',
